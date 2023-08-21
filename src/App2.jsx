@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import React, { useEffect, useState } from "react";
+import ButtonComponent from "./common/components/ButtonComponent";
+import TextFieldComponent from "./common/components/TextFieldComponent";
 import { selectPosts } from "./api/sample/SampleApi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function App() {
+const App2 = () => {
   /**
    * Data state 쓸 때 안 쓸 때 비교
    */
@@ -15,6 +16,9 @@ function App() {
   // };
   // console.log("postId", postId);
   const [buttonLabelName, setButtonLabelName] = useState("fetch");
+  // 화면 이동하는 hook => navigate('이동할 url')
+  // navigate(-1) 뒤로 가기
+  const navigate = useNavigate();
 
   const isDataExist = data.length > 0;
 
@@ -46,25 +50,54 @@ function App() {
     else setButtonLabelName("fetch");
   }, [isDataExist]);
 
-  const element = <h1>HELLO WORLD!!!!</h1>;
+  const element = <h1>HELLO WORLD!!!!2</h1>;
+
+  /**
+   * Def
+   */
+  //   const colDef = [
+  //     {
+  //       labelName: "글쓴이 번호",
+  //       name: "userId",
+  //     },
+  //     {
+  //       labelName: "제목",
+  //       name: "title",
+  //     },
+  //     {
+  //       labelName: "내용",
+  //       name: "body",
+  //     },
+  //   ];
 
   return (
     <div style={{ margin: "2rem" }}>
       {element}
-      <Link to="/app2">app2 화면으로 가기</Link>
-      <div>
+      <ButtonComponent
+        onClick={() => navigate("/app3")}
+        labelName="app3 화면으로 가기"
+      />
+      <ButtonComponent
+        onClick={() => navigate(-1)}
+        labelName="뒤로 가기"
+      />
+      {/* <div>
         <label>postId :</label>
         <input type="number" value={postId ?? ""} onChange={onChange} />
-      </div>
-      <button onClick={fetch}>{buttonLabelName}!!!</button>
+      </div> */}
+      <TextFieldComponent
+        value={postId}
+        onChange={onChange}
+        option={{ labelName: "postId : ", type: "number" }}
+      />
+      <ButtonComponent onClick={fetch} labelName={buttonLabelName} />
       {isDataExist && (
-        <button
+        <ButtonComponent
           onClick={() => {
             setData([]);
           }}
-        >
-          remove...
-        </button>
+          labelName={"remove..."}
+        />
       )}
       {data.map((ele, idx) => {
         return (
@@ -78,8 +111,9 @@ function App() {
           </div>
         );
       })}
+      {/* <TableComponent colDef={colDef} list={data} /> */}
     </div>
   );
-}
+};
 
-export default App;
+export default App2;
