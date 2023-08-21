@@ -10,11 +10,6 @@ const App2 = () => {
    */
   const [data, setData] = useState([]);
   const [postId, setPostId] = useState();
-  // let postId = "";
-  // const setPostId = (val) => {
-  //   postId = val;
-  // };
-  // console.log("postId", postId);
   const [buttonLabelName, setButtonLabelName] = useState("fetch");
   // 화면 이동하는 hook => navigate('이동할 url')
   // navigate(-1) 뒤로 가기

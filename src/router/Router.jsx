@@ -4,6 +4,7 @@ import App from "../App";
 import App2 from "../App2";
 import App3 from "../App3";
 import Sidebar from "../common/sidebar/Sidebar";
+import SampleForMemoizationLayout from "../layout/sampleForMemoization/SampleForMemoizationLayout";
 
 const Router = () => {
   return (
@@ -12,6 +13,10 @@ const Router = () => {
         <Route path="/" element={<App />} />
         <Route path="/app2" element={<App2 />} />
         <Route path="/app3" element={<App3 />} />
+        <Route
+          path="/memoizationSample"
+          element={<SampleForMemoizationLayout />}
+        />
       </Route>
     </Routes>
   );
