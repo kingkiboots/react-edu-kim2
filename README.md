@@ -1,5 +1,5 @@
 1. App.js : useState, useEffect, axios, Link 태그
-2. App2.jsx : <ButtonComponent />, <TextFieldComponent />, <TableComponent /> 공통 레이아웃 재사용, useNavigate()
+2. App2.jsx : ButtonComponen, TextFieldComponent, TableComponent 공통 레이아웃 재사용, useNavigate()
 3. App3.jsx : 컴포넌트 쪼개기
 4. SampleForMemoizationLayout.jsx : useCallback, useMemo
 
