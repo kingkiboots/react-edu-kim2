@@ -1,10 +1,14 @@
+1. npm install 혹은 yarn install
+2. npm start 혹은 yarn start
+
+# 개요
+
 1. App.js : useState, useEffect, axios, Link 태그
 2. App2.jsx : ButtonComponen, TextFieldComponent, TableComponent 공통 레이아웃 재사용, useNavigate()
 3. App3.jsx : 컴포넌트 쪼개기
 4. SampleForMemoizationLayout.jsx : useCallback, useMemo
 
 Navbar.jsx : 네비게이션바. <Outlet /> 태그를 이용하여 Sidebar는 렌더링 되지 않고 Router <Route path="/" exact element={<Navbar />}> 내에 있는 Route들만 바뀜
-
 
 # axios 가이드
 
@@ -26,7 +30,7 @@ GET(HEAD, DELETE, OPTIONS 포함)의 경우 Qeury Params 처리는 url에 직접
 ```jsx
 // GET
 axios
-  .get('/user', { params: { ID: 12345 } })
+  .get("/user", { params: { ID: 12345 } })
   .then((response) => {
     // 성공 핸들링
     console.log(response);
@@ -45,7 +49,7 @@ POST(PUT, PATCH 포함)의 경우 Payload Body 처리는 2번째 파라미터에
 ```jsx
 // POST
 axios
-  .post('/user', { firstName: 'Fred', lastName: 'Flintstone' })
+  .post("/user", { firstName: "Fred", lastName: "Flintstone" })
   .then((response) => {
     // 성공 핸들링
     console.log(response);
@@ -66,7 +70,7 @@ const getUser = async () => {
   // 오류는 try/catch 로 감싸서 처리 가능함.
   try {
     // response 응답이 올 때까지 대기
-    const response = await axios.get('/user?ID=12345');
+    const response = await axios.get("/user?ID=12345");
     console.log(response);
   } catch (error) {
     console.error(error);
@@ -140,7 +144,7 @@ config에서 설정 가능한 주요옵션.\
 오류처리 방식 예시.
 
 ```jsx
-axios.get('/user/12345').catch((error) => {
+axios.get("/user/12345").catch((error) => {
   // 서버에서 2xx 외의 상태 코드로 응답했을경우.
   if (error.response) {
     console.log(error.response.data);
@@ -153,7 +157,7 @@ axios.get('/user/12345').catch((error) => {
   }
   // 기타 오류
   else {
-    console.log('Error', error.message);
+    console.log("Error", error.message);
   }
 });
 ```
